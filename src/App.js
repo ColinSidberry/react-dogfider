@@ -1,14 +1,20 @@
 
-import Routes from "./Routes";
 import { BrowserRouter } from 'react-router-dom';
-import axios from "axios";
 import { useState } from "react";
+import axios from "axios";
 
-/**FIXME 
- * Toggle between loading page
- * and then show dog list when data is recieved
+import Routes from "./Routes";
+import NavBar from "./NavBar";
+
+/**Renders NavBar and Routes
  * 
- * state: isLoaded
+ * Props:
+ *  - None
+ * 
+ * State: 
+ *  - isLoaded
+ * 
+ * App->(NavBar, Routes)
 */
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -19,7 +25,7 @@ function App() {
     setDogs(dogsData.data);
     setIsLoaded(true);
   }
-  
+
   if (!isLoaded) {
     getDogs();
     return <h1>Loading...</h1>
@@ -28,6 +34,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <NavBar dogs={dogs} />
         <Routes dogs={dogs} />
       </BrowserRouter>
     </div>
@@ -35,12 +42,3 @@ function App() {
 }
 
 export default App;
-
-/**
- * App
-    * state: isLoaded
- *  Routes
- *    /Dogs
- *
- *     /Dogs/:name
- */

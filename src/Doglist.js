@@ -1,8 +1,17 @@
 
 import ShowDogDetail from "./ShowDogDetail";
 
+/**Renders DogList
+ * 
+ * Props:
+ *  - dogs: [{name, src, age, facts:[fact, ...] }, ..]
+ * 
+ * State: 
+ *  - None
+ * 
+ * App->Routes->DogList->ShowDogDetail
+*/
 function DogList({ dogs }) {
-    // console.log("dogList", dogs) //this is broken
     return (
         <div>
             {dogs.map(dog =>

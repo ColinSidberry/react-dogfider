@@ -2,6 +2,16 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import DogDetails from "./DogDetails";
 import DogList from "./DogList";
 
+/**Renders Routes
+ * 
+ * Props:
+ *  - dogs: [{name, src, age, facts:[fact, ...] }, ..]
+ * 
+ * State: 
+ *  - None
+ * 
+ * App->Routes->(DogList, DogDetails)
+*/
 
 function Routes({ dogs }) {
     // console.log("route dogs", dogs) //Works

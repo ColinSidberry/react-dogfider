@@ -1,6 +1,16 @@
 
 import "./ShowDogDetail.css";
 
+/**Shows Dog Details
+ * 
+ * Props:
+ *  - dog: {name, src, age, facts:[fact, ...] }
+ * 
+ * State: 
+ *  - None
+ * 
+ * (DogList, DogDetails)->ShowDogDetails
+*/
 function ShowDogDetail({ dog }) {
     return (
         <div className="dog">
