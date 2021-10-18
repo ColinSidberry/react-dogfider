@@ -12,14 +12,14 @@ import { useState } from "react";
 */
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [dogs, setDogs] = useState([]);
+  const [dogs, setDogs] = useState([]);//Question: Why does this have to be a state?
 
   async function getDogs() {
     const dogsData = await axios.get("http://localhost:5000/dogs");
     setDogs(dogsData.data);
     setIsLoaded(true);
   }
-
+  
   if (!isLoaded) {
     getDogs();
     return <h1>Loading...</h1>
