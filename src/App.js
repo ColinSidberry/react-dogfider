@@ -1,7 +1,8 @@
-import { useState } from "react";
+
 import Routes from "./Routes";
-import NavBar from "./NavBar";
-import { BrowserRouter, NavLink } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
+import axios from "axios";
+import { useState } from "react";
 
 /**FIXME 
  * Toggle between loading page
@@ -11,16 +12,23 @@ import { BrowserRouter, NavLink } from 'react-router-dom';
 */
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
-  function toggleIsLoaded(paramToBeDecided) {
-    //some condition that checks the ajax
-      //if promise reolved
-        //setIsLoaded(true);
+  const [dogs, setDogs] = useState([]);
+
+  async function getDogs() {
+    const dogsData = await axios.get("http://localhost:5000/dogs");
+    setDogs(dogsData.data);
+    setIsLoaded(true);
   }
+
+  if (!isLoaded) {
+    getDogs();
+    return <h1>Loading...</h1>
+  }
+
   return (
-    <div>
+    <div className="App">
       <BrowserRouter>
-        <NavBar />
-        <Routes isLoaded={isLoaded} toggleIsLoaded={toggleIsLoaded} />
+        <Routes dogs={dogs} />
       </BrowserRouter>
     </div>
   );
