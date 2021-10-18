@@ -1,0 +1,11 @@
+.dog {
+    text-align: center;
+    border: 1px solid lightgray;
+    margin:30px;
+    padding:20px;
+}
+.dog-image {
+    width:200px;
+    height:200px;
+    border-radius: 50%;
+}

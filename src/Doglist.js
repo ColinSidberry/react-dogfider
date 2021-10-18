@@ -1,10 +1,14 @@
 
-import DogDetails from "./DogDetails";
+import ShowDogDetail from "./ShowDogDetail";
 
 function DogList({ dogs }) {
-    console.log("dogList", dogs) //this is broken
+    // console.log("dogList", dogs) //this is broken
     return (
-        dogs.map(dog => <DogDetails dog={dog} key={dog.name} />)
+        <div>
+            {dogs.map(dog =>
+                <ShowDogDetail dog={dog} key={dog.name} />
+            )}
+        </div>
     )
 }
 

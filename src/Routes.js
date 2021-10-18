@@ -4,7 +4,7 @@ import DogList from "./DogList";
 
 
 function Routes({ dogs }) {
-    console.log("route dogs", dogs) //Works
+    // console.log("route dogs", dogs) //Works
     return (
         <div>
             <Switch>
