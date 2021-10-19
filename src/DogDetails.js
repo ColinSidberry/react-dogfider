@@ -10,7 +10,7 @@ import { Redirect } from "react-router-dom";
  * State: 
  *  - None
  * 
- * App->Routes->DogDetails->ShowDogDetail
+ * routed from "/dogs/:name"
 */
 function DogDetails({ dogs }) {
     // const [dog, setDog] = useState({}); 
@@ -19,20 +19,13 @@ function DogDetails({ dogs }) {
     // the dog getting lost in re-render on line 32. Why is this? 
     const { name } = useParams();
 
-    for (let dog of dogs) {
-        if (dog.name.toLowerCase() === name.toLowerCase()) {
-            return (
-                <ShowDogDetail dog={dog} />
-            );
-            // setDog(dog);
-            //instead of setting state return the dogDetails Component
-        }
-    }
+    const foundDog = dogs.find(dog => dog.name.toLowerCase() === name.toLowerCase())
+    if (!foundDog) return <Redirect to='/dogs' />
 
-    return <Redirect to='/dogs' />
-
-
+    return <ShowDogDetail dog={foundDog} />
 
 }
+
+
 
 export default DogDetails;

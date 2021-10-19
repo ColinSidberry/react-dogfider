@@ -9,7 +9,7 @@ import ShowDogDetail from "./ShowDogDetail";
  * State: 
  *  - None
  * 
- * App->Routes->DogList->ShowDogDetail
+ * routed from "/dogs"
 */
 function DogList({ dogs }) {
     return (
@@ -20,6 +20,7 @@ function DogList({ dogs }) {
         </div>
     )
 }
+
 
 
 export default DogList;

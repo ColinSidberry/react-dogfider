@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<div>
+  <div>
+    <div>
+      <div
+        class="ShowDogDetail"
+      >
+        <h1>
+          <a
+            href="/dogs/testDog1"
+          >
+            testDog1
+          </a>
+           
+        </h1>
+        <img
+          alt="testDog1"
+          class="ShowDogDetail-image"
+          src="/testDog1.jpg"
+        />
+        <h2>
+           Age: 
+          2
+        </h2>
+        <ul>
+          <li>
+            barks
+          </li>
+          <li>
+            eats
+          </li>
+        </ul>
+      </div>
+      <div
+        class="ShowDogDetail"
+      >
+        <h1>
+          <a
+            href="/dogs/testDog2"
+          >
+            testDog2
+          </a>
+           
+        </h1>
+        <img
+          alt="testDog2"
+          class="ShowDogDetail-image"
+          src="/testDog2.jpg"
+        />
+        <h2>
+           Age: 
+          2
+        </h2>
+        <ul>
+          <li>
+            plays
+          </li>
+          <li>
+            barks
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+`;

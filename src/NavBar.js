@@ -8,7 +8,7 @@ import "./NavBar.css";
  * State: 
  *  - None
  * 
- * App->NavBar->NavLinks
+ * App->NavBar
 */
 function NavBar({ dogs }) {
     return (

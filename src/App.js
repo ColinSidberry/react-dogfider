@@ -6,33 +6,41 @@ import axios from "axios";
 import Routes from "./Routes";
 import NavBar from "./NavBar";
 
+const BASE_URL = "http://localhost:5000/dogs";
 /**Renders NavBar and Routes
  * 
  * Props:
  *  - None
  * 
  * State: 
- *  - isLoaded
+ * - isLoaded
+ * - dogs
  * 
  * App->(NavBar, Routes)
 */
 function App() {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [dogs, setDogs] = useState([]);//Question: Why does this have to be a state?
+  const [needsLoading, setneedsLoading] = useState(true);
+  const [dogs, setDogs] = useState([]);
 
   async function getDogs() {
-    const dogsData = await axios.get("http://localhost:5000/dogs");
+    const dogsData = await axios.get(BASE_URL);
+    console.log("data", dogsData)
     setDogs(dogsData.data);
-    setIsLoaded(true);
+
   }
 
-  if (!isLoaded) {
+  if (needsLoading) {
+    setneedsLoading(false);
     getDogs();
+  }
+
+  if (dogs.length === 0) {
     return <h1>Loading...</h1>
   }
 
   return (
-    <div className="App">
+    <div>
+      <h1>Hello</h1>
       <BrowserRouter>
         <NavBar dogs={dogs} />
         <Routes dogs={dogs} />
@@ -40,5 +48,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;
